@@ -16,7 +16,7 @@
 
 ---------------  S U M M A R Y ------------
 
-Command Line: -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:49306,suspend=y,server=n -ea -javaagent:C:\Users\docen\.m2\repository/org/aspectj/aspectjweaver/1.9.22/aspectjweaver-1.9.22.jar -Didea.test.cyclic.buffer.size=1048576 -javaagent:C:\Users\docen\AppData\Local\JetBrains\IdeaIC2024.1\captureAgent\debugger-agent.jar=file:/C:/Users/docen/AppData/Local/Temp/capture.props -Dfile.encoding=UTF-8 com.intellij.rt.junit.JUnitStarter -ideVersion5 -junit5 test.ApiLoginOld,getProfilCookie
+Command Line: -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:49306,suspend=y,server=n -ea -javaagent:C:\Users\docen\.m2\repository/org/aspectj/aspectjweaver/1.9.22/aspectjweaver-1.9.22.jar -Didea.test.cyclic.buffer.size=1048576 -javaagent:C:\Users\docen\AppData\Local\JetBrains\IdeaIC2024.1\captureAgent\debugger-agent.jar=file:/C:/Users/docen/AppData/Local/Temp/capture.props -Dfile.encoding=UTF-8 com.intellij.rt.junit.JUnitStarter -ideVersion5 -junit5 test.ApiLogin,getProfilCookie
 
 Host: AMD Ryzen 5 3600 6-Core Processor              , 12 cores, 15G,  Windows 10 , 64 bit Build 19041 (10.0.19041.4717)
 Time: Wed Sep 11 12:24:25 2024 RTZ 4 (s 10 , 64 bit Build 19041 (10.0.19041.4717) elapsed time: 1699.951143 seconds (0d 0h 28m 19s)
@@ -537,8 +537,8 @@ Event: 1.795 Thread 0x000001d5c6327800 Uncommon trap: reason=unstable_if action=
 Event: 1511.259 Thread 0x000001d5ea075000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000001d5d562e1a0 method=java.lang.ThreadLocal.get()Ljava/lang/Object; @ 11 c2
 
 Classes redefined (2 events):
-Event: 1511.286 Thread 0x000001d5e948a000 redefined class name=test.ApiLoginOld, count=1
-Event: 1699.714 Thread 0x000001d5e948a000 redefined class name=test.ApiLoginOld, count=2
+Event: 1511.286 Thread 0x000001d5e948a000 redefined class name=test.ApiLogin, count=1
+Event: 1699.714 Thread 0x000001d5e948a000 redefined class name=test.ApiLogin, count=2
 
 Internal exceptions (10 events):
 Event: 1.726 Thread 0x000001d5c6327800 Exception <a 'java/lang/NoSuchMethodError'{0x000000070eccf790}: java.lang.invoke.DirectMethodHandle$Holder.invokeInterface(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;> (0x000000070eccf790) 
@@ -640,7 +640,7 @@ symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Pr
 
 VM Arguments:
 jvm_args: -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:49306,suspend=y,server=n -ea -javaagent:C:\Users\docen\.m2\repository/org/aspectj/aspectjweaver/1.9.22/aspectjweaver-1.9.22.jar -Didea.test.cyclic.buffer.size=1048576 -javaagent:C:\Users\docen\AppData\Local\JetBrains\IdeaIC2024.1\captureAgent\debugger-agent.jar=file:/C:/Users/docen/AppData/Local/Temp/capture.props -Dfile.encoding=UTF-8 
-java_command: com.intellij.rt.junit.JUnitStarter -ideVersion5 -junit5 test.ApiLoginOld,getProfilCookie
+java_command: com.intellij.rt.junit.JUnitStarter -ideVersion5 -junit5 test.ApiLogin,getProfilCookie
 java_class_path (initial): C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2024.1.5\lib\idea_rt.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2024.1.5\plugins\junit\lib\junit5-rt.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2024.1.5\plugins\junit\lib\junit-rt.jar;D:\project\TestBookMarket\target\test-classes;C:\Users\docen\.m2\repository\io\qameta\allure\allure-junit5\2.29.0\allure-junit5-2.29.0.jar;C:\Users\docen\.m2\repository\io\qameta\allure\allure-junit-platform\2.29.0\allure-junit-platform-2.29.0.jar;C:\Users\docen\.m2\repository\org\junit\platform\junit-platform-launcher\1.10.3\junit-platform-launcher-1.10.3.jar;C:\Users\docen\.m2\repository\io\qameta\allure\allure-test-filter\2.29.0\allure-test-filter-2.29.0.jar;C:\Users\docen\.m2\repository\io\qameta\allure\allure-selenide\2.24.0\allure-selenide-2.24.0.jar;C:\Users\docen\.m2\repository\io\qameta\allure\allure-java-commons\2.24.0\allure-java-commons-2.24.0.jar;C:\Users\docen\.m2\repository\io\qameta\allure\allure-model\2.24.0\allure-model-2.24.0.jar;C:\Users\docen\.m2\repository\com\codeborne\selenide\6.19.1\selenide-6.19.1.jar;C:\Users\docen\.m2\repository\org\seleniumhq\selenium\selenium-java\4.13.0\selenium-java-4.13.0.jar;C:\Users\docen\.m2\repository\org\seleniumhq\selenium\selenium-api\4.13.0\selenium-api-4.13.0.jar;C:\Users\docen\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\4.13.0\selenium-chrome-driver-4.13.0.jar;C:\Users\docen\.m2\repository\com\google\auto\service\auto-service-annotations\1.1.1\auto-service-annotations-1.1.1.jar;C:\Users\docen\.m2\repository\org\seleniumhq\selenium\selenium-chromium-driver\4.13.0\selenium-chromium-driver-4.13.0.jar;C:\Users\docen\.m2\repository\org\seleniumhq\selenium\selenium-json\4.13.0\selenium-json-4.13.0.jar;C:\Users\docen\.m2\repository\org\seleniumhq\selenium\selenium-manager\4.13.0\selenium-manager-4.13.0.jar;C:\Users\docen\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v115\4.13.0\s
 Launcher Type: SUN_STANDARD
 
