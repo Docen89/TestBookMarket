@@ -48,11 +48,6 @@ public class TestBookMarket {
     jsonArray.setUserId(userId);
     jsonArray.setCollectionOfIsbns(List.of(ArrayItem.builder().isbn("9781449325862").build()));
     ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-//    String json =null;
-//    try{
-//       json = ow.writeValueAsString(jsonArray);
-//    }catch (Exception EXp){}
-
          RestAssured.given()
         .auth().preemptive().basic(cfg.userName(),cfg.password())
         .contentType(ContentType.JSON)
