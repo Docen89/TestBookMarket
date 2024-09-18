@@ -4,6 +4,7 @@ import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import java.io.File;
+import org.junit.jupiter.api.Test;
 
 public class ApiLogin {
   public Response responseLogin;
@@ -21,7 +22,7 @@ public class ApiLogin {
 
 
   }
-  public String getUserIdvalue(){
-    return authLoginGetUserid().path("userid");
+  public String getUserIdValue(){
+    return authLoginGetUserid().path("userId");
   }
 }

@@ -6,10 +6,9 @@ import io.restassured.response.Response;
 import java.io.File;
 
 public class ApiGetToken {
-   public Response responseGetToken;
 
-   public void getTokenAndExpires(){
-     Response  responseGenerateToken = RestAssured. given()
+   public Response getTokenAndExpires(){
+    return  RestAssured. given()
          .contentType(ContentType.JSON)
          .body(new File("src/test/resources/AuthData.json"))
          .log().all()
@@ -21,11 +20,13 @@ public class ApiGetToken {
   }
 
   public  String getTokenValue(){
-     return responseGetToken.path("token");
+
+     return getTokenAndExpires().path("token");
   }
 
   public String getExpiresValue(){
-     return responseGetToken.path("expires");
+
+     return getTokenAndExpires().path("expires");
   }
 
 }

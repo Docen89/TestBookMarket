@@ -25,67 +25,67 @@ public class ApiLoginOld {
   public String useridvalue;
 
 
-  @Test
-  @Order(1)
-    public   void getProfileUserIdAndToken() {
-        response=RestAssured.given()
-        .contentType(ContentType.JSON)
-        .body(new File("src/test/resources/AuthData.json"))
-        .when()
-        .post("https://demoqa.com/Account/v1/Login")
-        .then()
-        .log().all()
-        .statusCode(200)
-        .extract().response();
-
-        String token = response.path("token");
-        String userId = response.path("userId");
-        System.out.println(token+userId);
-        tokenvalue=token;
-        useridvalue=userId;
-
-
-
-  }
-  @Test
-  @Order(2)
-     public void getProfilCookie() {
-      Response responsegetcookie = RestAssured.given()
-              .contentType(ContentType.JSON)
-             .body(new File("src/test/resources/AuthData.json"))
-        .when()
-             .log().uri()
-        .post("https://demoqa.com/Account/v1/GenerateToken");
-    responsegetcookie
-        .then()
-        .log().all()
-        .statusCode(200)
-        .extract().response();
-
-    String cookieValueExpires = responsegetcookie.getCookie("expires");
-    String cookieValueUserId = responsegetcookie.getCookie("userID");
-    String cookieValueToken = responsegetcookie.getCookie("token");
-    System.out.println(cookieValueToken);
-    System.out.println(cookieValueExpires);
-    System.out.println(cookieValueUserId);
-  }
-
-
-  @Test
-  @Order(3)
-  public void addbooksMarket() {
-    Response getBook = RestAssured.given()
-        .auth().preemptive().basic("docen","Docen1313!")
-        .header("Authorization","Bearer "+tokenvalue)
-        .header("Content-Type","application/json;charset=utf-8")
-        .body(new File("src/test/resources/Array.json"))
-        .when()
-        .log().all()
-        .post("https://demoqa.com/BookStore/v1/Books")
-            .then()
-                .log().body()
-            .extract().response();
-  }
+//  @Test
+//  @Order(1)
+//    public   void getProfileUserIdAndToken() {
+//        response=RestAssured.given()
+//        .contentType(ContentType.JSON)
+//        .body(new File("src/test/resources/AuthData.json"))
+//        .when()
+//        .post("https://demoqa.com/Account/v1/Login")
+//        .then()
+//        .log().all()
+//        .statusCode(200)
+//        .extract().response();
+//
+//        String token = response.path("token");
+//        String userId = response.path("userId");
+//        System.out.println(token+userId);
+//        tokenvalue=token;
+//        useridvalue=userId;
+//
+//
+//
+//  }
+//  @Test
+//  @Order(2)
+//     public void getProfilCookie() {
+//      Response responsegetcookie = RestAssured.given()
+//              .contentType(ContentType.JSON)
+//             .body(new File("src/test/resources/AuthData.json"))
+//        .when()
+//             .log().uri()
+//        .post("https://demoqa.com/Account/v1/GenerateToken");
+//    responsegetcookie
+//        .then()
+//        .log().all()
+//        .statusCode(200)
+//        .extract().response();
+//
+//    String cookieValueExpires = responsegetcookie.getCookie("expires");
+//    String cookieValueUserId = responsegetcookie.getCookie("userID");
+//    String cookieValueToken = responsegetcookie.getCookie("token");
+//    System.out.println(cookieValueToken);
+//    System.out.println(cookieValueExpires);
+//    System.out.println(cookieValueUserId);
+//  }
+//
+//
+//  @Test
+//  @Order(3)
+//  public void addbooksMarket() {
+//    Response getBook = RestAssured.given()
+//        .auth().preemptive().basic("docen","Docen1313!")
+//        .header("Authorization","Bearer "+tokenvalue)
+//        .header("Content-Type","application/json;charset=utf-8")
+//        .body(new File("src/test/resources/Array.json"))
+//        .when()
+//        .log().all()
+//        .post("https://demoqa.com/BookStore/v1/Books")
+//            .then()
+//                .log().body()
+//            .extract().response();
+//  }
 
   @Test
    void getLogin2(){
