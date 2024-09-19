@@ -85,10 +85,10 @@ public class TestBookMarket {
       $x("//button[@id='closeSmallModal-ok']").click();
     });
     step("Получаем сообщение об удаление книги", () -> {
-      Alert jsal = switchTo().alert();
-      String jsal_text = jsal.getText();
-      System.out.println(jsal_text);
-      Assert.assertEquals(jsal_text, "Book deleted.");
+      Alert delBook = switchTo().alert();
+      String delBook_text = delBook.getText();
+      System.out.println(delBook_text);
+      Assert.assertEquals(delBook_text, "Book deleted.");
     });
   }
 }

@@ -26,4 +26,10 @@ public interface config extends Config {
 
   @Key("password")
   String password();
+
+  @Key("browser.size")
+  String browserSize();
+
+  @Key("page.load.strategy")
+  String pageLoadStrategy();
 }
