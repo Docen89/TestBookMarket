@@ -1,24 +1,26 @@
 package api;
 
-import config.config;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import java.io.File;
-import org.aeonbits.owner.ConfigFactory;
+import java.util.HashMap;
+import java.util.Map;
+import org.junit.jupiter.api.Test;
+import test.BaseApiTest;
 
-public class ApiGetToken {
+public class ApiGetToken extends BaseApiTest {
 
-  private config cfg = ConfigFactory.create(config.class);
-  private Response responseValue = null;
+  public String token;
+  public String expires;
 
+  public ApiGetToken() {
+    addMap();
+  }
 
-  public Response getTokenAndExpires() {
+  public void addMap() {
     RestAssured.baseURI = cfg.baseUri();
-    if (responseValue != null) {
-      return responseValue;
-    }
-    responseValue = RestAssured.given()
+    Response response = RestAssured.given()
         .contentType(ContentType.JSON)
         .body(new File("src/test/resources/AuthData.json"))
         .log().all()
@@ -27,17 +29,28 @@ public class ApiGetToken {
         .then()
         .log().all()
         .extract().response();
-    return responseValue;
+    Map mapA = new HashMap();
+    mapA.put("token", response.path("token"));
+    mapA.put("expires", response.path("expires"));
+    token = (String) mapA.get("token");
+    expires = (String) mapA.get("expires");
   }
-
-  public String getTokenValue() {
-
-    return getTokenAndExpires().path("token");
-  }
-
-  public String getExpiresValue() {
-
-    return getTokenAndExpires().path("expires");
-  }
-
 }
+//  public Response getTokenAndExpires() {
+//    RestAssured.baseURI = cfg.baseUri();
+//    if (responseValue != null) {
+//      return responseValue;
+//    }
+//
+//  }
+//
+//  public String getTokenValue() {
+//
+//    return getTokenAndExpires().path("token");
+//  }
+//
+//  public String getExpiresValue() {
+//
+//    return getTokenAndExpires().path("expires");
+////  }
+//}

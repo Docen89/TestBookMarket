@@ -1,32 +1,29 @@
 package api;
 
-import api.JsonArray.ArrayItem;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
-import config.config;
+import api.model.IsbnPartialModel;
+import api.model.RequestBookModel;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
-import java.util.List;
-import org.aeonbits.owner.ConfigFactory;
 
-public class ApiAddBook {
+import java.util.Collections;
+import test.BaseApiTest;
 
-  private config cfg = ConfigFactory.create(config.class);
-  public ApiLogin apiLogin;
-  public ApiGetToken apiGetToken;
+public class ApiAddBook extends BaseApiTest {
+
+  public ApiLogin apiLogin = new ApiLogin();
 
   public void addBooK() {
-    apiLogin = new ApiLogin();
-    apiGetToken = new ApiGetToken();
     String userId = apiLogin.getUserIdValue();
-    JsonArray jsonArray = new JsonArray();
-    jsonArray.setUserId(userId);
-    jsonArray.setCollectionOfIsbns(List.of(ArrayItem.builder().isbn("9781449325862").build()));
-    ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+    RequestBookModel requestBookModel = new RequestBookModel();
+    IsbnPartialModel isbnPartialModel = new IsbnPartialModel();
+    isbnPartialModel.setIsbn("9781449325862");
+    requestBookModel.setUserId(userId);
+    requestBookModel.setCollectionOfIsbns(Collections.singletonList(isbnPartialModel));
+
     RestAssured.given()
         .auth().preemptive().basic(cfg.userName(), cfg.password())
         .contentType(ContentType.JSON)
-        .body(jsonArray)
+        .body(requestBookModel)
         .log().all()
         .post(cfg.booksPath())
         .then()
