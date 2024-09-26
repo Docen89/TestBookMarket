@@ -6,7 +6,6 @@ import io.restassured.response.Response;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-import org.junit.jupiter.api.Test;
 import test.BaseApiTest;
 
 public class ApiGetToken extends BaseApiTest {

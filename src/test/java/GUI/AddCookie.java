@@ -8,6 +8,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 
 import org.openqa.selenium.Cookie;
+import test.BaseGuiTest;
 
 public class AddCookie extends BaseGuiTest {
 

@@ -1,4 +1,4 @@
-package GUI;
+package test;
 
 import com.codeborne.selenide.Configuration;
 import config.config;

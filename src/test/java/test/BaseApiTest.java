@@ -1,6 +1,5 @@
 package test;
 
-import com.codeborne.selenide.Configuration;
 import config.config;
 import io.restassured.RestAssured;
 import org.aeonbits.owner.ConfigFactory;
