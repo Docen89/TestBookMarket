@@ -6,9 +6,9 @@ import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 
 import java.util.Collections;
-import test.BaseApiTest;
+import test.BaseTest;
 
-public class ApiAddBook extends BaseApiTest {
+public class ApiAddBook extends BaseTest {
 
   public ApiLogin apiLogin = new ApiLogin();
 
@@ -28,5 +28,6 @@ public class ApiAddBook extends BaseApiTest {
         .post(cfg.booksPath())
         .then()
         .log().all();
+
   }
 }

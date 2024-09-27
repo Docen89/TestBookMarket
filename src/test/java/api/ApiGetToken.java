@@ -6,15 +6,17 @@ import io.restassured.response.Response;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-import test.BaseApiTest;
+import test.BaseTest;
 
-public class ApiGetToken extends BaseApiTest {
+
+public class ApiGetToken extends BaseTest {
 
   public String token;
   public String expires;
 
   public ApiGetToken() {
     addMap();
+
   }
 
   public void addMap() {
@@ -28,28 +30,11 @@ public class ApiGetToken extends BaseApiTest {
         .then()
         .log().all()
         .extract().response();
-    Map mapA = new HashMap();
-    mapA.put("token", response.path("token"));
-    mapA.put("expires", response.path("expires"));
-    token = (String) mapA.get("token");
-    expires = (String) mapA.get("expires");
+    Map<String, String> tokenAndExpiresValue = new HashMap<>();
+    tokenAndExpiresValue.put("token", response.path("token"));
+    tokenAndExpiresValue.put("expires", response.path("expires"));
+    token = (String) tokenAndExpiresValue.get("token");
+    expires = (String) tokenAndExpiresValue.get("expires");
+
   }
 }
-//  public Response getTokenAndExpires() {
-//    RestAssured.baseURI = cfg.baseUri();
-//    if (responseValue != null) {
-//      return responseValue;
-//    }
-//
-//  }
-//
-//  public String getTokenValue() {
-//
-//    return getTokenAndExpires().path("token");
-//  }
-//
-//  public String getExpiresValue() {
-//
-//    return getTokenAndExpires().path("expires");
-////  }
-//}

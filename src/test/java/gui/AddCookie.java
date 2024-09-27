@@ -1,4 +1,4 @@
-package GUI;
+package gui;
 
 import static com.codeborne.selenide.Selenide.open;
 
@@ -8,9 +8,9 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 
 import org.openqa.selenium.Cookie;
-import test.BaseGuiTest;
+import test.BaseTest;
 
-public class AddCookie extends BaseGuiTest {
+public class AddCookie extends BaseTest {
 
   public ApiLogin apiLogin = new ApiLogin();
   public ApiGetToken apiGetToken = new ApiGetToken();
@@ -24,5 +24,6 @@ public class AddCookie extends BaseGuiTest {
     WebDriverRunner.getWebDriver().manage().addCookie(new Cookie("token", apiGetToken.token));
     WebDriverRunner.getWebDriver().manage().addCookie(new Cookie("expires", apiGetToken.expires));
     open(cfg.profilePath());
+
   }
 }
