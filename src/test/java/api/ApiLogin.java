@@ -11,10 +11,18 @@ public class ApiLogin extends BaseTest {
 
 
   public Response authLoginGetUserid() {
-    RestAssured.baseURI = cfg.baseUri();
-    return RestAssured.given().contentType(ContentType.JSON)
-        .body(new File("src/test/resources/AuthData.json")).log().all().when().post(cfg.loginPath())
-        .then().log().all().extract().response();
+    return RestAssured.given()
+        .contentType(ContentType.JSON)
+        .body(new File("src/test/resources/AuthData.json"))
+        .log()
+        .all()
+        .when()
+        .post(cfg.loginPath())
+        .then()
+        .log()
+        .all()
+        .extract()
+        .response();
 
   }
 

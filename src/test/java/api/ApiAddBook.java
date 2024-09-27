@@ -1,14 +1,16 @@
 package api;
 
+import static test.BaseTest.cfg;
+
 import api.model.IsbnPartialModel;
 import api.model.RequestBookModel;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 
 import java.util.Collections;
-import test.BaseTest;
 
-public class ApiAddBook extends BaseTest {
+
+public class ApiAddBook {
 
   public ApiLogin apiLogin = new ApiLogin();
 
@@ -21,13 +23,17 @@ public class ApiAddBook extends BaseTest {
     requestBookModel.setCollectionOfIsbns(Collections.singletonList(isbnPartialModel));
 
     RestAssured.given()
-        .auth().preemptive().basic(cfg.userName(), cfg.password())
+        .auth()
+        .preemptive()
+        .basic(cfg.userName(), cfg.password())
         .contentType(ContentType.JSON)
         .body(requestBookModel)
-        .log().all()
+        .log()
+        .all()
         .post(cfg.booksPath())
         .then()
-        .log().all();
+        .log()
+        .all();
 
   }
 }
