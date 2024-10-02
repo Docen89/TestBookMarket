@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Alert;
 import org.testng.Assert;
 
-public class ApiTestBookMarket extends BaseTest {
+public class ApiBookMarketTest extends test.BaseTest {
 
   public ApiAddBook apiAddBook = new ApiAddBook();
   public AddCookie addCookie = new AddCookie();
@@ -25,6 +25,5 @@ public class ApiTestBookMarket extends BaseTest {
     Alert delBook = switchTo().alert();
     String delBookText = delBook.getText();
     Assert.assertEquals(delBookText, "Book deleted.");
-
   }
 }
