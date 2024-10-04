@@ -4,7 +4,7 @@ import org.aeonbits.owner.Config;
 import org.aeonbits.owner.Config.Sources;
 
 @Sources({"classpath:config.properties"})
-public interface config extends Config {
+public interface MyConfig extends Config {
 
   @Key("base.uri")
   String baseUri();
@@ -28,6 +28,7 @@ public interface config extends Config {
   String password();
 
   @Key("browser.size")
+  @DefaultValue("800x600")
   String browserSize();
 
   @Key("page.load.strategy")

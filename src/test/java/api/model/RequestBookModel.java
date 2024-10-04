@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 public class RequestBookModel {
 
-  private List<IsbnPartialModel> collectionOfIsbns;
+  private List<api.model.IsbnPartialModel> collectionOfIsbns;
   private String userId;
 }

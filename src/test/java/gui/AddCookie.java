@@ -1,6 +1,7 @@
 package gui;
 
 import static com.codeborne.selenide.Selenide.open;
+import static io.qameta.allure.Allure.step;
 import static test.BaseTest.cfg;
 
 import api.ApiGetToken;

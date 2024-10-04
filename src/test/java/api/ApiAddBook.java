@@ -12,7 +12,7 @@ import java.util.Collections;
 
 public class ApiAddBook {
 
-  public ApiLogin apiLogin = new ApiLogin();
+  public api.ApiLogin apiLogin = new api.ApiLogin();
 
   public void addBooK() {
     String userId = apiLogin.getUserIdValue();
