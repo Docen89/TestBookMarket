@@ -1,17 +1,11 @@
 package test;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Screenshots;
-import com.codeborne.selenide.logevents.SelenideLogger;
-import com.google.common.io.Files;
 
-import io.qameta.allure.Attachment;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import io.restassured.RestAssured;
-
-import java.io.File;
 import java.io.IOException;
-
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -42,14 +36,14 @@ public class BaseTest {
 
   @AfterEach
   public void tearDown() throws IOException {
-    screenshot();
+//    screenshot();
   }
 
-  @Attachment(type = "image/png")
-  public byte[] screenshot() throws IOException {
-    File screenshot = Screenshots.getLastScreenshot();
-    return screenshot == null ? null : Files.toByteArray(screenshot);
-  }
+//  @Attachment(type = "image/png")
+//  public byte[] screenshot() throws IOException {
+//    File screenshot = Screenshots.getLastScreenshot();
+//    return screenshot == null ? null : Files.toByteArray(screenshot);
+//  }
 }
 
 
