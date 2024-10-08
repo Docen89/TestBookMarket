@@ -2,8 +2,6 @@ package gui;
 
 import static com.codeborne.selenide.Selenide.$x;
 
-
-
 public class DeleteBook  {
 
   public void deleteBook() {
