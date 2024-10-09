@@ -34,10 +34,10 @@ public class BaseTest {
 
   }
 
-  @AfterEach
-  public void tearDown() throws IOException {
-//    screenshot();
-  }
+//  @AfterEach
+//  public void tearDown() throws IOException {
+////    screenshot();
+//  }
 
 //  @Attachment(type = "image/png")
 //  public byte[] screenshot() throws IOException {

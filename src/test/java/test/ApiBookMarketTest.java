@@ -27,7 +27,7 @@ public class ApiBookMarketTest extends test.BaseTest {
     String delBookText = delBook.getText();
     Assert.assertEquals(delBookText, "Book deleted.");
   }
-  
+
   @Test
   @DisplayName("Удаляем книгу из коллекции")
   public void deleteBook() {
