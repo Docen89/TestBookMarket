@@ -18,21 +18,22 @@ public class ApiBookMarketTest extends test.BaseTest {
   public gui.DeleteBookError deleteBookError = new gui.DeleteBookError();
 
   @Test
-  @DisplayName("Удаляем книгу из коллекции")
-  public void deleteBook() {
-    apiAddBook.addBooK();
-    addCookie.addCookie();
-    deleteBook.deleteBook();
-    Alert delBook = switchTo().alert();
-    String delBookText = delBook.getText();
-    Assert.assertEquals(delBookText, "Book deleted.");
-  }
-  @Test
   @DisplayName("Удаляем книгу из коллекции (error)")
   public void deleteBookError() {
     apiAddBook.addBooK();
     addCookie.addCookie();
     deleteBookError.deleteBookError();
+    Alert delBook = switchTo().alert();
+    String delBookText = delBook.getText();
+    Assert.assertEquals(delBookText, "Book deleted.");
+  }
+  
+  @Test
+  @DisplayName("Удаляем книгу из коллекции")
+  public void deleteBook() {
+    apiAddBook.addBooK();
+    addCookie.addCookie();
+    deleteBook.deleteBook();
     Alert delBook = switchTo().alert();
     String delBookText = delBook.getText();
     Assert.assertEquals(delBookText, "Book deleted.");
